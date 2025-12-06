@@ -7,7 +7,7 @@ export const listUsers = async () => {
 }
 
 export const getUser = async (id: string) => {
-    return (await client.get(`/users/${id}`)).data as User
+    return (await client.get<User>(`/users/${id}`)).data
 }
 
 export const createUser = async (
@@ -22,8 +22,8 @@ export const createUser = async (
         password,
         role_id,
     }
-    const response = await client.post('/users', payload)
-    return response.data as User[]
+    const response = await client.post<User>('/users', payload)
+    return response.data
 }
 
 export const updateUser = async (
@@ -37,6 +37,23 @@ export const updateUser = async (
         email,
         role_id,
     }
-    const response = await client.put(`/users/${id}`, payload)
-    return response.data as User
+    const response = await client.put<User>(`/users/${id}`, payload)
+    return response.data
+}
+
+export const login = async (email: string, password: string) => {
+    const payload = {
+        email: email,
+        password: password,
+    }
+    const response = await client.post('/login', payload)
+    return response.data as {
+        token: string,
+        user: {
+            id: number,
+            name: string,
+            email: string,
+            role_id: number,
+        }
+    }
 }

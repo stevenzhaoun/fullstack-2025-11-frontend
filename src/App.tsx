@@ -2,12 +2,11 @@ import Layout from './components/Layout'
 import {Routes, Route} from 'react-router'
 import ListUsers from './modules/users/ListUsers'
 import CreateOrUpdateUser from './modules/users/CreateOrUpdateUser'
+import Login from './components/Login'
+import { RootContainer } from './components/RootContainer'
+import { Dashboard } from './modules/dashboard/Dashboard'
 function Home() {
   return <div>Home</div>
-}
-
-function Dashboard() {
-  return <div>Dashboard</div>
 }
 
 function Roles() {
@@ -24,7 +23,7 @@ function Orders() {
 
 function App() {
   return (
-    <>
+    <RootContainer>
       {/* <Layout /> */}
       <Routes>
         <Route path='/' element={<Layout />}>
@@ -36,8 +35,9 @@ function App() {
           <Route path='products' element={<Products />}/>
           <Route path='orders' element={<Orders />}/>
         </Route>
+        <Route path='/login' element={<Login />}/>
       </Routes>
-    </>
+    </RootContainer>
   )
 }
 

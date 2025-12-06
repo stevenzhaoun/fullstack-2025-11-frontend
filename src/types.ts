@@ -11,3 +11,11 @@ export type Role = {
     id: number;
     name: string;
 }
+
+export type Order = {
+    id: number;
+    email: string;
+    created_at: string;
+    total: number;
+    product_ids: number[]
+}

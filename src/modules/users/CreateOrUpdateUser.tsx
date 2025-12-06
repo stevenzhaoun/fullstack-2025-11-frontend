@@ -1,5 +1,5 @@
 import { Box, MenuItem, FormControl, InputLabel, Select, TextField, Typography, type SelectChangeEvent, CircularProgress, Button } from "@mui/material";
-import type { Role, User } from "../../types";
+import type { User } from "../../types";
 import { useState, useEffect } from "react";
 import { listRoles } from "../../api/roles.api";
 import { createUser, getUser, updateUser } from "../../api/users.api";

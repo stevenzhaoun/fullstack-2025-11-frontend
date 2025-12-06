@@ -1,14 +1,8 @@
-import { AppBar, Box, Button, Menu, MenuItem, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Toolbar, Typography } from '@mui/material'
 import { useUser } from '../hooks/useUser'
-import { useState } from 'react'
 
 export default function TopNav() {
     const { userData, logout } = useUser()
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(e.currentTarget)
-    }
 
     const handleLogout = () => {
         logout()
@@ -21,7 +15,7 @@ export default function TopNav() {
             </Typography>
             
             <Box sx={{display: 'flex', gap: 2, alignItems: 'center'}}>
-                <Typography id="profile-button" onClick={handleClick} >{userData?.name}</Typography>
+                <Typography id="profile-button">{userData?.name}</Typography>
                 <Typography onClick={handleLogout} sx={{cursor: 'pointer', border: '1px solid white', padding: '5px 10px', borderRadius: '5px'}} noWrap component="div">Logout</Typography>
             </Box>
         </Toolbar>

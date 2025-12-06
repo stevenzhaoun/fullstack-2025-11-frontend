@@ -3,7 +3,6 @@ import client from "../api/client"
 import { useNavigate } from "react-router"
 import { useAppDispatch, useAppSelector } from "./redux"
 import { setUserData as setUserDataAction, clearUserData as clearUserDataAction } from "../slices/userSlice"
-import { useSelector } from "react-redux"
 
 export const useUser = () => {
     const userData = useAppSelector((state) => {
